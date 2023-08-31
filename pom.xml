@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ericomonteiro.github.com</groupId>
-	<artifactId>dynamodb</artifactId>
+	<artifactId>spring-boot-dynamodb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>dynamodb</name>
 	<description>Demo project for Spring Boot</description>
@@ -40,12 +40,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>com.github.derjust</groupId>
-			<artifactId>spring-data-dynamodb</artifactId>
-			<version>5.1.0</version>
 		</dependency>
 
 		<dependency>
