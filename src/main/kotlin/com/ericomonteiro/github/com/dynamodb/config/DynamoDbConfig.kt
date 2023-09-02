@@ -26,7 +26,7 @@ class DynamoDbConfig (
     private val secretKey: String) {
 
     @Bean
-    fun dynamoDb(): AmazonDynamoDB {
+    fun amazonDynamoDB(): AmazonDynamoDB {
         return AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(credentialsProvider)
                 .withEndpointConfiguration(getEndpointConfiguration(dynamoDbEndpointUrl))
