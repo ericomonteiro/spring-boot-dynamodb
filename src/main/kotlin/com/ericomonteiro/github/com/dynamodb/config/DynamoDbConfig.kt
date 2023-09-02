@@ -13,16 +13,16 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @EnableDynamoDBRepositories(basePackages = ["com.ericomonteiro.github.com.dynamodb"])
 class DynamoDbConfig (
-    @Value("\${config.aws.region}")
+    @Value("\${spring.cloud.aws.dynamodb.region}")
     private val region: String,
 
-    @Value("\${config.aws.dynamodb.url}")
+    @Value("\${spring.cloud.aws.dynamodb.endpoint}")
     private val dynamoDbEndpointUrl: String,
 
-    @Value("\${config.aws.dynamodb.access-key}")
+    @Value("\${spring.cloud.aws.credentials.access-key}")
     private val accessKey: String,
 
-    @Value("\${config.aws.dynamodb.secret-key}")
+    @Value("\${spring.cloud.aws.credentials.secret-key}")
     private val secretKey: String) {
 
     @Bean

@@ -1,18 +1,20 @@
 package com.ericomonteiro.github.com.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable
 import com.ericomonteiro.github.com.dynamodb.dto.CustomerSummaryDto
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey
 
-@DynamoDBTable(tableName = "my-app.customer_summary")
-data class CustomerSummary(
-    @DynamoDBHashKey
-    val id: String,
+@DynamoDbBean
+class CustomerSummary() {
+    var id: String = ""
+        @DynamoDbPartitionKey
+        get() = field
 
-    @DynamoDBAttribute
-    val name: String
-) {
+    var name: String = ""
+    constructor(id: String, name: String) : this() {
+        this.id = id
+        this.name = name
+    }
     companion object {
         fun from(o: CustomerSummaryDto) =
             CustomerSummary(o.id, o.name)
