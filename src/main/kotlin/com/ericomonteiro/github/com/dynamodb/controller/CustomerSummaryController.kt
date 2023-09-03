@@ -16,7 +16,7 @@ class CustomerSummaryController(
 ) {
 
     @PostMapping
-    fun createCustomer(@RequestBody dto: CustomerSummaryDto): CustomerSummary {
+    fun createCustomer(@RequestBody dto: CustomerSummaryDto): CustomerSummaryDto {
         return customerSummaryService.createCustomerSummary(dto)
     }
 

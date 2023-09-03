@@ -16,8 +16,10 @@ class CustomerSummaryMigration {
     fun createTable(db: DynamoDB) {
         val attributeDefinitions: MutableList<AttributeDefinition> = ArrayList()
         attributeDefinitions.add(AttributeDefinition().withAttributeName("id").withAttributeType("S"))
+        attributeDefinitions.add(AttributeDefinition().withAttributeName("sortKey").withAttributeType("S"))
         val keySchema: MutableList<KeySchemaElement> = ArrayList()
         keySchema.add(KeySchemaElement().withAttributeName("id").withKeyType(KeyType.HASH))
+        keySchema.add(KeySchemaElement().withAttributeName("sortKey").withKeyType(KeyType.RANGE))
 
         val request = CreateTableRequest()
                 .withTableName(tableName)

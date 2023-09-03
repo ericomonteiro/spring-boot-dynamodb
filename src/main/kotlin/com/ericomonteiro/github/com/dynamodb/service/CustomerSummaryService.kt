@@ -10,8 +10,8 @@ class CustomerSummaryService(
     private val dynamoDbTemplate: DynamoDbTemplate
 ) {
 
-    fun createCustomerSummary(customerSummaryDto: CustomerSummaryDto): CustomerSummary {
-        return dynamoDbTemplate.save(CustomerSummary.from(customerSummaryDto))
+    fun createCustomerSummary(customerSummaryDto: CustomerSummaryDto): CustomerSummaryDto {
+        return dynamoDbTemplate.save(CustomerSummary.from(customerSummaryDto)).toInfoDto()
     }
 
     fun listCustomersSummary(): List<CustomerSummary> {
